@@ -1,0 +1,24 @@
+{
+  "name": "olostep",
+  "version": "1.0.0",
+  "description": "Turn any website into clean, LLM-ready markdown or structured data. Olostep integrates powerful web scraping, crawling, search, and AI-powered answers directly into Claude Code. Scrape single pages, crawl entire sites, map site structures, batch process up to 10k URLs, and search the web — all with automatic JavaScript rendering, anti-bot handling, and proxy rotation built in.",
+  "author": {
+    "name": "Olostep",
+    "email": "support@olostep.com"
+  },
+  "homepage": "https://olostep.com",
+  "repository": "https://github.com/olostep/olostep-claude-code-plugin",
+  "license": "MIT",
+  "keywords": [
+    "web-scraping",
+    "web-search",
+    "crawling",
+    "markdown-extraction",
+    "ai-answers",
+    "batch-scraping",
+    "content-extraction",
+    "mcp"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}
