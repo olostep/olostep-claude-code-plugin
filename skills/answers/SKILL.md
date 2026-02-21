@@ -1,12 +1,19 @@
 ---
 name: answers
-description: Get AI-powered answers with citations and sources from the web using Olostep
+description: Get AI-powered answers with citations from live web data — with optional structured JSON output you can use directly in code. Use when the user needs up-to-date facts, competitive intelligence, pricing comparisons, or web-sourced answers in a specific shape.
 argument-hint: <question>
 ---
 
 # Olostep AI Answers
 
-Search the web and get AI-powered answers with sources and citations. Optionally specify a JSON schema for structured output.
+Ask a question, get an AI-synthesised answer from live web sources — with citations and optional structured JSON output you can paste straight into code. This is the most versatile tool in the Olostep toolkit: instead of scraping individual pages, you describe what you want to know and the shape you want the answer in.
+
+## When to use
+
+- User needs up-to-date facts that training data may not have
+- User wants to compare tools, pricing, or features with current data
+- User wants structured JSON output from a web question (e.g. `{"name": "", "price": ""}`)
+- User wants cited, verifiable answers — not guesses
 
 ## Instructions
 
@@ -18,17 +25,23 @@ When the user asks a question they want answered from the web (via `$ARGUMENTS` 
 
 ## Parameters
 - **task**: The question or task to answer using web data (required)
-- **json**: JSON schema or description of desired output shape (optional). Example: `{"book_title": "", "author": "", "release_date": ""}`
+- **json**: JSON schema or description of desired output shape (optional). Example: `{"name": "", "price": "", "features": []}`
 
-## Examples
+## Real developer workflows
 
-- `/olostep:answers What are the top AI frameworks in 2026?` — Get an AI answer with citations
-- `/olostep:answers Find the founders of [company]` — Research with sources
-- `/olostep:answers Compare pricing of [product A] vs [product B]` — Comparative analysis
-- With structured output: Ask about products and specify `{"name": "", "price": "", "features": []}` as the JSON schema
+**"What's the current state of X?"**
+> "Is Bun production-ready in 2026? I want to replace Node in our API."
+→ Returns a structured risk assessment with GitHub activity, production case studies, and community sentiment — all cited.
+
+**"Compare pricing"**
+> "Compare Vercel, Netlify, and Render pricing for a Next.js app with 100k monthly visitors"
+→ Returns a structured comparison with plan names, prices, and limits from each vendor's current pricing page.
+
+**"Get structured data from the web"**
+> "Find the top 5 headless CMS options and return them as JSON with name, pricing, and open-source status"
+→ Returns `[{"name": "...", "pricing": "...", "open_source": true}]` with citations.
 
 ## Tips
-- Great for research questions, competitive analysis, and fact-checking
-- Use structured JSON output for consistent, parseable responses
-- Citations include source URLs so you can verify information
+- Use a `json` schema whenever possible — structured output makes results directly usable in code
+- Citations include source URLs so the user can verify and explore deeper
 - Combine with `/olostep:scrape` for deeper dives into cited sources

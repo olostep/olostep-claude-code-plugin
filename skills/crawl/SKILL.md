@@ -1,12 +1,19 @@
 ---
 name: crawl
-description: Autonomously crawl an entire website starting from a URL, following links to discover and scrape pages
+description: Crawl an entire docs site, blog, or knowledge base by following links from a start URL — and return all pages as clean markdown. Use when the user wants to ingest a full documentation site, learn a new library, or build context from a multi-page source.
 argument-hint: <start_url> [max_pages]
 ---
 
 # Olostep Crawl
 
-Autonomously discover and scrape entire websites by following links from a starting URL.
+Autonomously follow links and ingest an entire documentation site, blog, or knowledge base in one call. Every page comes back as clean, LLM-ready markdown.
+
+## When to use
+
+- User wants to learn a new library by reading its entire docs
+- User wants to ingest a full docs site as context for coding
+- User wants to build a knowledge base from a multi-page source
+- User says "crawl this site" or "read all the docs"
 
 ## Instructions
 
@@ -25,14 +32,21 @@ When the user wants to crawl a website (via `$ARGUMENTS` or in conversation):
 - **country**: Country code for geo-targeted crawling (optional)
 - **parser**: Specialized parser ID (optional)
 
-## Examples
+## Real developer workflows
 
-- `/olostep:crawl https://docs.example.com` — Crawl documentation site (10 pages)
-- `/olostep:crawl https://example.com/blog 50` — Crawl up to 50 blog pages
-- `/olostep:crawl https://example.com json` — Crawl and get JSON output
+**"Learn a library from its docs"**
+> "Crawl https://tanstack.com/query/latest/docs and give me a cheat sheet of the key hooks and patterns"
+→ Crawls 10–15 docs pages → extracts commands and patterns → returns a focused cheat sheet.
+
+**"Ingest docs as coding context"**
+> "Crawl the Hono framework docs so you can help me build a REST API with it"
+→ Crawls the docs → you now have full, current API knowledge to write accurate code.
+
+**"Build a knowledge base"**
+> "Crawl this company's engineering blog and summarise their architecture decisions"
+→ Crawls blog posts → extracts key technical decisions → presents a structured summary.
 
 ## Tips
 - Start with a small `max_pages` to test, then increase
-- Use on documentation sites, blogs, or product catalogs
 - Combine with `/olostep:map` first to see what URLs exist before crawling
-- Set `follow_links: false` to only scrape the starting page
+- Great as a first step before writing code — crawl the docs, then code from them

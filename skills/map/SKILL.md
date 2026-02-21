@@ -1,12 +1,19 @@
 ---
 name: map
-description: Discover and list all URLs on a website for site analysis and planning
+description: Discover every URL on a website — then filter by keyword or pattern to find exactly what you need. Use when you want to see the structure of a site before scraping, find specific sections (docs, blog, API reference), or get a URL list to feed into batch or crawl.
 argument-hint: <website_url>
 ---
 
 # Olostep Map
 
-Discover all URLs on a website. Useful for site analysis, content auditing, and planning what to scrape.
+Discover all URLs on a website and filter them to find exactly the pages you need. This is the reconnaissance step — map the site, then scrape or crawl the relevant pages.
+
+## When to use
+
+- User wants to see what pages exist on a site before scraping
+- User wants to find specific sections (docs, blog, API reference, pricing)
+- User wants a URL list to feed into batch scrape or crawl
+- User wants to audit a site's structure or content coverage
 
 ## Instructions
 
@@ -24,13 +31,21 @@ When the user wants to map a website (via `$ARGUMENTS` or in conversation):
 - **include_url_patterns**: Glob patterns to include, e.g., `/blog/**` (optional)
 - **exclude_url_patterns**: Glob patterns to exclude, e.g., `/admin/**` (optional)
 
-## Examples
+## Real developer workflows
 
-- `/olostep:map https://example.com` — Discover all URLs on a site
-- `/olostep:map https://example.com blog` — Find only blog-related URLs
-- `/olostep:map https://docs.example.com` — Map documentation structure
+**"Find the right docs pages"**
+> "Map https://docs.stripe.com and find all pages related to webhooks"
+→ Returns a filtered list of webhook-related doc pages → ready to scrape or batch.
+
+**"Audit a site's structure"**
+> "Map our marketing site and show me every URL grouped by section"
+→ Returns a complete URL tree organized by path structure.
+
+**"Prepare a batch scrape"**
+> "Map this e-commerce site and find all product category pages"
+→ Discovers URLs → filter with include patterns → feed the results into `/olostep:batch`.
 
 ## Tips
-- Use mapping before crawling to understand site structure
-- Filter with include/exclude patterns for large sites
-- Combine with `/olostep:batch` to scrape discovered URLs
+- Use mapping before crawling to understand site structure and target your scrape
+- Filter with include/exclude patterns to avoid noise on large sites
+- Combine with `/olostep:batch` to scrape discovered URLs at scale

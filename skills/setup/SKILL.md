@@ -1,16 +1,16 @@
 ---
 name: setup
-description: Configure your Olostep API key for web scraping, search, and crawling
+description: Get started with Olostep in under a minute — configure your free API key and verify everything works. Use when setting up for the first time or troubleshooting authentication.
 disable-model-invocation: true
 ---
 
 # Olostep Setup
 
-Help the user configure their Olostep API key so the MCP server tools work correctly.
+Get the user up and running with Olostep in under a minute. Free API key, quick config, done.
 
 ## Steps
 
-1. Ask the user for their Olostep API key. If they don't have one, direct them to sign up at https://olostep.com/auth to get a free API key.
+1. Ask the user for their Olostep API key. If they don't have one, direct them to sign up at https://olostep.com/auth to get a free API key (100 credits/month included).
 
 2. Once they provide the key, update the MCP server configuration. Add or update the following in the project's `.claude/settings.json` or the user's global Claude Code settings:
 
@@ -28,9 +28,12 @@ Help the user configure their Olostep API key so the MCP server tools work corre
 }
 ```
 
-3. Confirm the setup is complete and suggest they try `/olostep:scrape` or `/olostep:search` to test.
+3. Confirm the setup is complete and suggest they try a quick test:
+   - `/olostep:scrape https://example.com` to test scraping
+   - `/olostep:search latest AI news` to test search
+   - `/olostep:answers What is the latest version of React?` to test AI answers
 
 ## Notes
-- The free tier includes 100 credits/month
+- The free tier includes 100 credits/month — plenty to get started
 - Get your API key at: https://olostep.com/auth
-- Documentation: https://docs.olostep.com
+- Full documentation: https://docs.olostep.com
