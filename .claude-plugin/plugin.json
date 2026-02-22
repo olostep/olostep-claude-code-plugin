@@ -1,6 +1,6 @@
 {
   "name": "olostep",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Give Claude Code a live connection to the web. Scrape any URL, search the web with cited AI answers, crawl entire doc sites, and extract structured data from any page -- all with JavaScript rendering, anti-bot bypass, and residential proxies built in. Read the real docs before writing integrations. Fix errors by searching live GitHub issues. Compare tools with current pricing data. Turn any webpage into typed JSON matching your schema. Works on SPAs, paywalled pages, and bot-protected sites.",
   "author": {
     "name": "Olostep",

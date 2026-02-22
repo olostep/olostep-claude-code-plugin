@@ -83,11 +83,13 @@ These tools are available directly in conversation once the MCP server is runnin
 |------|-------------|
 | `scrape_website` | Extract content from a single URL (markdown, HTML, JSON, text) |
 | `get_webpage_content` | Retrieve a webpage as clean markdown |
+| `search_web` | Search the web and return structured results |
 | `google_search` | Get structured Google SERP data (organic, knowledge graph, People Also Ask) |
 | `answers` | AI-powered answers with citations and optional JSON output shape |
 | `create_crawl` | Autonomously crawl a website from a start URL |
 | `create_map` | Discover all URLs on a site with include/exclude pattern filtering |
 | `batch_scrape_urls` | Scrape up to 10,000 URLs in parallel |
+| `get_batch_results` | Retrieve status and scraped content for a batch job by batch_id |
 | `get_website_urls` | Find and rank URLs within a specific site by relevance to a query |
 
 ## Configuration
