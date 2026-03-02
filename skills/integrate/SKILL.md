@@ -415,10 +415,10 @@ answer = client.answers.create(task="What is the capital of France?")
 print(answer.answer)    # parsed dict: {'result': 'Paris'}
 print(answer.sources)   # list of source URLs
 
-# Structured output with JSON schema
+# Structured output with JSON format
 answer = client.answers.create(
     task="What is the latest book by J.K. Rowling?",
-    json_schema={"book_title": "", "author": "", "release_date": ""},
+    json_format={"book_title": "", "author": "", "release_date": ""},
 )
 parsed = answer.answer  # {'book_title': '...', 'author': '...', 'release_date': '...'}
 print(answer.sources)   # ['https://...', ...]
