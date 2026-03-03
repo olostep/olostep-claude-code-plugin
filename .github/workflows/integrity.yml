@@ -1,0 +1,44 @@
+name: Plugin Integrity
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  static:
+    name: Static checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install test dependencies
+        run: pip install pytest
+
+      - name: Run static integrity tests
+        run: pytest tests/test_skill_integrity.py -v
+
+  live:
+    name: Live API smoke tests
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: static
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install olostep SDK + pytest
+        run: pip install olostep pytest
+
+      - name: Run live API tests
+        env:
+          OLOSTEP_API_KEY: ${{ secrets.OLOSTEP_API_KEY }}
+        run: pytest tests/test_live_api.py -v --timeout=60
