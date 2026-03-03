@@ -30,9 +30,10 @@ class TestScrapeSkill:
             "https://example.com",
             formats=["markdown"],
         )
-        assert result.url == "https://example.com"
-        assert result.markdown
-        assert "Example" in result.markdown
+        # API may normalise URL with a trailing slash
+        assert result.url.rstrip("/") == "https://example.com"
+        assert result.markdown_content
+        assert "Example" in result.markdown_content
 
     def test_scrape_returns_credits_consumed(self, client):
         """scrape result exposes credits_consumed field."""
@@ -42,8 +43,9 @@ class TestScrapeSkill:
     def test_scrape_html_format(self, client):
         """scrape skill: html format returns raw HTML."""
         result = client.scrapes.create("https://example.com", formats=["html"])
-        assert result.html
-        assert "<html" in result.html.lower()
+        # Field name is html_content on ScrapeResult
+        assert result.html_content
+        assert "<html" in result.html_content.lower()
 
 
 # ---------------------------------------------------------------------------
@@ -76,12 +78,15 @@ class TestAnswersSkill:
 
     def test_structured_json_answer(self, client):
         """answers skill: json_format returns structured dict."""
+        import json
         result = client.answers.create(
             task="What is the capital of France?",
             json_format={"capital": "", "country": ""},
         )
-        assert isinstance(result.answer, dict)
-        assert "capital" in result.answer
+        # answer is a JSON string when json_format is used; parse it
+        parsed = json.loads(result.answer)
+        assert isinstance(parsed, dict)
+        assert "capital" in parsed
 
 
 # ---------------------------------------------------------------------------
