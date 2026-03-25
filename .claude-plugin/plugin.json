@@ -1,7 +1,7 @@
 {
   "name": "olostep",
-  "version": "1.0.1",
-  "description": "Give Claude Code a live connection to the web. Scrape any URL, search the web with cited AI answers, crawl entire doc sites, and extract structured data from any page -- all with JavaScript rendering, anti-bot bypass, and residential proxies built in. Read the real docs before writing integrations. Fix errors by searching live GitHub issues. Compare tools with current pricing data. Turn any webpage into typed JSON matching your schema. Works on SPAs, paywalled pages, and bot-protected sites.",
+  "version": "1.0.0",
+  "description": "Turn any website into clean, LLM-ready markdown or structured data. Olostep integrates powerful web scraping, crawling, search, and AI-powered answers directly into Claude Code. Scrape single pages, crawl entire sites, map site structures, batch process up to 10k URLs, and search the web — all with automatic JavaScript rendering, anti-bot handling, and proxy rotation built in.",
   "author": {
     "name": "Olostep",
     "email": "support@olostep.com"

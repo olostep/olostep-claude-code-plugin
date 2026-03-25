@@ -1,20 +1,17 @@
 # Olostep Plugin for Claude Code
 
-Give Claude Code a live connection to the web. Scrape any URL, search the web with cited AI answers, crawl entire doc sites, and extract structured data from any page — all with JavaScript rendering, anti-bot bypass, and residential proxies built in.
+Turn any website into clean, LLM-ready markdown or structured data. Olostep integrates powerful web scraping, crawling, search, and AI-powered answers directly into Claude Code.
 
-## What you can do
+## Features
 
-- **Scrape** — Read any webpage as clean markdown, HTML, JSON, or text — including JS-rendered SPAs and bot-protected sites
-- **Search** — Search the live web and get structured Google SERP results
-- **Crawl** — Ingest an entire docs site or blog in one call by following links automatically
-- **Map** — Discover every URL on a site before you scrape, so you target exactly what you need
-- **Batch** — Scrape up to 10,000 URLs in parallel — products, pricing pages, changelogs, competitor sites
-- **AI Answers** — Ask a question, get a cited, structured answer pulled from live web sources
-- **Docs-to-Code** — Scrape API docs and write working integration code from the real, current reference
-- **Debug Error** — Search live GitHub issues and forums to find the fix for any error
-- **Extract Schema** — Turn any webpage into typed JSON matching your interface or database model
-- **Migrate Code** — Scrape a migration guide and automatically update your code to the new version
-- **Research** — Multi-source web research for tool comparisons, competitive intelligence, and technical decisions
+- **Scrape** — Extract content from any webpage as markdown, HTML, JSON, or text
+- **Search** — Search the web and get structured results
+- **Crawl** — Autonomously discover and scrape entire websites
+- **Map** — Discover all URLs on a site for analysis
+- **Batch** — Scrape up to 10,000 URLs in parallel
+- **AI Answers** — Get AI-powered answers with citations and sources
+
+All with automatic JavaScript rendering, anti-bot handling, and proxy rotation built in.
 
 ## Installation
 
@@ -34,65 +31,75 @@ claude plugin add olostep/olostep-claude-code-plugin
 
 ## Setup
 
+After installing, run `/olostep:setup` to configure your API key.
+
 1. Get your free API key at [olostep.com/auth](https://olostep.com/auth)
 2. Run `/olostep:setup` and paste your key
-3. Start using any skill below!
+3. Start scraping!
 
-## Skills
+## Available Commands
 
-| Skill | Invoke | What it does |
-|---|---|---|
-| `setup` | `/olostep:setup` | Configure your Olostep API key and verify the MCP server is running |
-| `scrape` | `/olostep:scrape` | Read any webpage as clean markdown — handles JS, bot protection, and geo-targeting |
-| `search` | `/olostep:search` | Search the live web and get structured results with titles, URLs, and snippets |
-| `crawl` | `/olostep:crawl` | Crawl an entire website from a start URL, following links automatically |
-| `map` | `/olostep:map` | Discover all URLs on a site and filter by keyword or pattern |
-| `batch` | `/olostep:batch` | Batch scrape up to 10,000 URLs in parallel |
-| `answers` | `/olostep:answers` | Get AI-powered answers with citations and optional structured JSON output |
-| `docs-to-code` | `/olostep:docs-to-code` | Scrape API docs and write working, up-to-date integration code |
-| `debug-error` | `/olostep:debug-error` | Search GitHub issues and forums to find the fix for a real error |
-| `extract-schema` | `/olostep:extract-schema` | Turn any webpage into typed JSON matching your schema |
-| `migrate-code` | `/olostep:migrate-code` | Scrape a migration guide and automatically update your code |
-| `research` | `/olostep:research` | Multi-source web research for tool comparisons and technical decisions |
+| Command | Description |
+|---------|-------------|
+| `/olostep:setup` | Configure your Olostep API key |
+| `/olostep:scrape` | Extract content from a single webpage |
+| `/olostep:search` | Search the web for information |
+| `/olostep:crawl` | Crawl an entire website from a start URL |
+| `/olostep:map` | Discover all URLs on a website |
+| `/olostep:batch` | Batch scrape up to 10,000 URLs |
+| `/olostep:answers` | Get AI-powered answers with citations |
 
-## Real developer workflows
+## Usage Examples
 
-**"Read the docs and write the integration"**
-> "Scrape https://docs.stripe.com/api/payment_intents and write me a TypeScript function to create a payment intent"
+### Scrape a webpage
+```
+/olostep:scrape https://example.com
+```
 
-**"Fix this error"**
-> "I'm getting `Cannot read properties of undefined (reading 'map')` in Next.js 15 — help me fix it"
+### Search the web
+```
+/olostep:search latest AI frameworks 2026
+```
 
-**"Crawl and learn a new library"**
-> "Crawl https://tanstack.com/query/latest/docs and give me a cheat sheet of the key hooks and patterns"
+### Crawl a documentation site
+```
+/olostep:crawl https://docs.example.com 50
+```
 
-**"Compare competitors before building"**
-> "Batch scrape the pricing pages of Vercel, Netlify, and Render — extract plan names, prices, and limits as JSON"
+### Map a website's structure
+```
+/olostep:map https://example.com
+```
 
-**"Extract structured data"**
-> "Scrape this YC directory page and return a JSON array matching my Prisma `Startup` schema"
+### Batch scrape multiple URLs
+```
+/olostep:batch https://example.com/page1, https://example.com/page2, https://example.com/page3
+```
 
-**"Migrate to a new version"**
-> "Scrape the Next.js 15 migration guide and update my layout.tsx"
+### Get AI-powered answers
+```
+/olostep:answers What are the pricing plans for [product]?
+```
 
 ## MCP Tools
 
-These tools are available directly in conversation once the MCP server is running:
+You can also use Olostep's tools directly in conversation. Ask Claude to scrape a URL, search the web, gather competitive research, or extract structured data. The following MCP tools are available:
 
 | Tool | Description |
 |------|-------------|
 | `scrape_website` | Extract content from a single URL (markdown, HTML, JSON, text) |
-| `get_webpage_content` | Retrieve a webpage as clean markdown |
-| `search_web` | Search the web and return structured results |
-| `google_search` | Get structured Google SERP data (organic, knowledge graph, People Also Ask) |
-| `answers` | AI-powered answers with citations and optional JSON output shape |
-| `create_crawl` | Autonomously crawl a website from a start URL |
-| `create_map` | Discover all URLs on a site with include/exclude pattern filtering |
-| `batch_scrape_urls` | Scrape up to 10,000 URLs in parallel |
-| `get_batch_results` | Retrieve status and scraped content for a batch job by batch_id |
-| `get_website_urls` | Find and rank URLs within a specific site by relevance to a query |
+| `get_webpage_content` | Retrieve a webpage as markdown |
+| `search_web` | Search the web with structured results |
+| `google_search` | Get Google SERP data |
+| `create_crawl` | Autonomously crawl a website |
+| `create_map` | Discover all URLs on a site |
+| `batch_scrape_urls` | Batch scrape up to 10k URLs |
+| `answers` | AI-powered answers with citations |
+| `get_website_urls` | Search and retrieve relevant URLs |
 
 ## Configuration
+
+The plugin is configured via the MCP server. Environment variables:
 
 | Variable | Required | Description |
 |----------|----------|-------------|
