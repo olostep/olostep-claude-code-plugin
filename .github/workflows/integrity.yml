@@ -36,7 +36,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install olostep SDK + pytest
-        run: pip install olostep pytest
+        run: pip install olostep pytest pytest-timeout
 
       - name: Run live API tests
         env:
