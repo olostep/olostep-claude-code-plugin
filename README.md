@@ -107,7 +107,7 @@ The plugin is configured via the MCP server. Environment variables:
 
 ## Pricing
 
-- **Free tier**: 100 credits/month
+- **Free tier**: 500 free credits
 - Sign up at [olostep.com/auth](https://olostep.com/auth)
 - See full pricing at [olostep.com/pricing](https://olostep.com/pricing)
 
