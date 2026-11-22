@@ -17,9 +17,7 @@ KNOWN_MCP_TOOLS = {
     "create_crawl",
     "create_map",
     "get_batch_results",
-    "google_search",
-    "get_webpage_content",
-    "get_website_urls",
+    "get_crawl_results",
     "scrape_website",
     "search_web",
 }

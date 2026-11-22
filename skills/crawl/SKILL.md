@@ -20,7 +20,6 @@ When the user wants to crawl a website (via `$ARGUMENTS` or in conversation):
 ## Parameters
 - **start_url**: Starting URL for the crawl (required)
 - **max_pages**: Maximum pages to crawl (default: 10)
-- **follow_links**: Whether to follow discovered links (default: true)
 - **output_format**: `markdown` (default), `html`, `json`, or `text`
 - **country**: Country code for geo-targeted crawling (optional)
 - **parser**: Specialized parser ID (optional)
@@ -35,4 +34,4 @@ When the user wants to crawl a website (via `$ARGUMENTS` or in conversation):
 - Start with a small `max_pages` to test, then increase
 - Use on documentation sites, blogs, or product catalogs
 - Combine with `/olostep:map` first to see what URLs exist before crawling
-- Set `follow_links: false` to only scrape the starting page
+- To read only the starting page, use `/olostep:scrape` instead

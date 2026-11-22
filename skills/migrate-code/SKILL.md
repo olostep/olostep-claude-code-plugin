@@ -20,7 +20,7 @@ Take the pain out of major version upgrades. Scrape the official migration guide
 When the user provides a migration guide URL (via `$ARGUMENTS` or in conversation):
 
 1. Scrape the migration guide using `mcp__olostep__scrape_website` (use `output_format: markdown`).
-2. If the guide spans multiple pages, use `mcp__olostep__get_website_urls` or `mcp__olostep__create_map` to find the relevant pages, and `mcp__olostep__batch_scrape_urls` to read them all.
+2. If the guide spans multiple pages, use `mcp__olostep__create_map` (with a `search_query`) to find the relevant pages, and `mcp__olostep__batch_scrape_urls` to read them all.
 3. Extract the "Before" and "After" patterns, breaking changes, and deprecated methods from the scraped content.
 4. Analyze the user's open or selected code files.
 5. Apply the necessary changes, explaining exactly what was updated based on the migration guide.

@@ -24,7 +24,7 @@ When the user asks a research question (via `$ARGUMENTS` or in conversation):
 1. **Quick answer**: Use `mcp__olostep__answers` with a `json` schema for structured, cited results.
 2. **Deep dive**: Scrape the most relevant sources with `mcp__olostep__scrape_website` for full detail.
 3. **Multi-site comparison**: Use `mcp__olostep__batch_scrape_urls` on competitors' pricing/features/docs pages.
-4. **Site-specific research**: Use `mcp__olostep__get_website_urls` to find relevant pages within a specific site.
+4. **Site-specific research**: Use `mcp__olostep__create_map` with a `search_query` to find relevant pages within a specific site.
 5. **Synthesise and recommend**: Present findings as a table, structured JSON, or clear recommendation — always end with a recommendation, don't just list facts.
 
 ## Real developer workflows

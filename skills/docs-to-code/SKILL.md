@@ -21,7 +21,7 @@ Turn any documentation URL into working, tested code. Scrape the real docs, unde
 When the user provides a docs URL and a coding goal (via `$ARGUMENTS` or in conversation):
 
 1. **Scrape the docs page**: Use `mcp__olostep__scrape_website` with `output_format: markdown`, `wait_before_scraping: 2000`.
-2. **If docs span multiple pages**: Use `mcp__olostep__get_website_urls` or `mcp__olostep__create_map` to find sub-pages (auth, endpoints, types, errors), then scrape the relevant ones.
+2. **If docs span multiple pages**: Use `mcp__olostep__create_map` (with a `search_query`) to find sub-pages (auth, endpoints, types, errors), then scrape the relevant ones.
 3. **For entire doc sites**: Use `mcp__olostep__create_crawl` with `max_pages: 15` to ingest a full docs section.
 4. **Parse the API surface**: Extract endpoints, parameters (required vs optional), auth patterns, request/response shapes, error codes.
 5. **Write the code**: Use exactly what's in the docs. Include correct imports, auth setup, TypeScript types derived from the docs' response shapes, and error handling for documented error codes.

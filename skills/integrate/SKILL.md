@@ -153,7 +153,7 @@ const fetched = await client.scrapes.get(scrape.id);
 
 **Response fields:** `id`, `html_content`, `markdown_content`, `text_content`, `json_content`, `screenshot_hosted_url`, `html_hosted_url`, `markdown_hosted_url`, `json_hosted_url`, `text_hosted_url`, `links_on_page`, `page_metadata`
 
-### Batches — scrape up to 10k URLs in parallel
+### Batches — scrape up to 100k URLs in parallel
 
 ```ts
 // Simple
@@ -520,7 +520,7 @@ client = Olostep(
 |--------|----------|---------|
 | POST | `/v1/scrapes` | Scrape a single URL |
 | GET | `/v1/scrapes/:id` | Get scrape result |
-| POST | `/v1/batches` | Start a batch (up to 10k URLs) |
+| POST | `/v1/batches` | Start a batch (up to 100k URLs) |
 | GET | `/v1/batches` | List all batches |
 | GET | `/v1/batches/:id` | Get batch status |
 | GET | `/v1/batches/:id/items` | Get batch results |
@@ -856,7 +856,7 @@ If the user is also using Claude Code or Cursor, set up the MCP server config al
 }
 ```
 
-MCP tools available: `scrape_website`, `get_webpage_content`, `search_web`, `google_search`, `answers`, `batch_scrape_urls`, `create_crawl`, `create_map`, `get_website_urls`.
+MCP tools available: `scrape_website`, `search_web`, `answers`, `batch_scrape_urls`, `get_batch_results`, `create_crawl`, `get_crawl_results`, `create_map`.
 
 ---
 
